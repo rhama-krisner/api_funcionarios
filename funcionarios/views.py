@@ -1,4 +1,7 @@
-from django.contrib.auth.models import Funcionarios
-from django.shortcuts import get_object_or_404
-from funcionarios.serializers import Funcionarios_Serializer 
- 
+from funcionarios.serializer import Funcionarios_Serializer
+from rest_framework import generics
+from funcionarios.models import Funcionarios
+
+class FuncionariosViewSet(generics.ListAPIView):
+    queryset = Funcionarios.objects.all()
+    serializer_class = Funcionarios_Serializer

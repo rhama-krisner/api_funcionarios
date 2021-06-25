@@ -16,5 +16,5 @@ class Funcionarios(models.Model):
     salario = models.DecimalField(max_digits=6, decimal_places=2)
     data_nascimento = models.DateField()
 
-def __str__(self):
-    return self.nome
+    def __str__(self):
+        return self.nome
