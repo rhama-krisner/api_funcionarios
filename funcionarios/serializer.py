@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from models import Funcionarios
+from funcionarios.models import Funcionarios
 
 
 class Funcionarios_Serializer(serializers.ModelSerializer):
