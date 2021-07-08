@@ -1,13 +1,7 @@
-from django.contrib import admin
-from django.urls import path, include
-from .views import FuncionariosViewSet
-from rest_framework import routers
+from django.urls import path
+from . import views
 
-router = routers.DefaultRouter()
-router.register('funcionarios', FuncionariosViewSet, basename='Funcionarios')
+urlpatterns=[
+    path('', views.SnippetList.as_view(), name='Funcionarios'),
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('funcionarios.urls')), 
-     
 ]
