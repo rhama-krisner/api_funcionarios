@@ -24,13 +24,13 @@ class FuncionarioEndPoint(APIView):
 
         }
     
-        funcionarios = Funcionarios_Serializer(data=data)
+        funcionariosSerializer = Funcionarios_Serializer(data=data)
 
-        if funcionarios.is_valid():
+        if funcionariosSerializer.is_valid():
+            return Response(funcionariosSerializer.data, status=status.HTTP_201_CREATED)
             player.save()
-            return Response(funcionarios.data)
         else:
-            return Response(funcionarios.data)
+            return Response(funcionariosSerializer.data, status=status.HTTP_400_BAD_REQUEST)
 
 class Funcionarios_get_put_delete(APIView):
 
@@ -45,6 +45,7 @@ class Funcionarios_get_put_delete(APIView):
         funcionarios_serializer = Funcionarios_Serializer(funcionarios)
         return Response(funcionarios_serializer.data)
 
+    
     def delete(self, request, id):
         funcionarios = self.get_funcionarios(id=id)
         funcionarios.delete()
@@ -64,4 +65,4 @@ class FuncionariosByPosition(APIView):
 
         funcionarios = Funcionarios.objects.filter(position=position)
         funcionarios_serializer = Funcionarios_Serializer(funcionarios, many=True)
-        return Return(funcionarios_serializer.data)
+        return Return(funcionarios_serializer.data) 
