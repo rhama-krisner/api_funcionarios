@@ -7,30 +7,32 @@ from rest_framework import status
 from .models import Funcionarios
 from .serializer import Funcionarios_Serializer
 
-class FuncionarioEndPoint(APIView):
+class AllFuncionarios(APIView):
+
+    """API de Funcionários."""
 
     def get(self, request):
         funcionarios = Funcionarios.objects.all()
         funcionarios_serializer = Funcionarios_Serializer(funcionarios, many=True)
         return Response(funcionarios_serializer.data)
-    
+
+class AddFuncionarios(APIView):
     def post(self, request):
 
         data = {
-
-            'nome': request.data.get('nome'),
-            'cpf': request.data.get('cpf'),
-            'cargo': request.data.get('cargo '),
-
+            
+            'nome':request.data.get('nome'),
+            'cpf':request.data.get('cpf'),
+            'cargo':request.data.get('cargo')
         }
-    
-        funcionariosSerializer = Funcionarios_Serializer(data=data)
 
-        if funcionariosSerializer.is_valid():
-            return Response(funcionariosSerializer.data, status=status.HTTP_201_CREATED)
-            player.save()
+        funcionario_serializer = Funcionarios_Serializer(data=data)
+
+        if funcionario_serializer.is_valid():
+            funcionario_serializer.save()
         else:
-            return Response(funcionariosSerializer.data, status=status.HTTP_400_BAD_REQUEST)
+            return Response(funcionario_serializer.errors)
+        
 
 class Funcionarios_get_put_delete(APIView):
 
