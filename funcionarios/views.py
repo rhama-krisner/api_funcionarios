@@ -30,6 +30,7 @@ class AddFuncionarios(APIView):
 
         if funcionario_serializer.is_valid():
             funcionario_serializer.save()
+            return Response(funcionario_serializer.data)
         else:
             return Response(funcionario_serializer.errors)
         
