@@ -15,8 +15,8 @@ Para que seja usado a api, são necessários alguns downloads e configurações.
 |:-----------------:|:----------------------------------------|
 |GET | http://127.0.0.1:8000/user/funcionarios/|
 |POST | http://127.0.0.1:8000/user/add/|
-|PUT | http://127.0.0.1:8000/user/*id*|
-|DELETE | http://127.0.0.1:8000/user/*id*|
+|PUT | http://127.0.0.1:8000/user/ *id* |
+|DELETE | http://127.0.0.1:8000/user/ *id* |
 
 
 
