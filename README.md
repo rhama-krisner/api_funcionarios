@@ -36,4 +36,7 @@ Para que seja usado a api, são necessários alguns downloads e configurações.
 ~~~
 
 
-<div style="text-align: right"> <i>v1.0 </div>
+<div style="text-align: right"> <i>v0.1 alpha </div>
+   
+   
+Esta foi a primeira api que eu criei.
